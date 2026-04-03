@@ -1,0 +1,291 @@
+.grid-bg {
+  position: fixed;
+  inset: 0;
+
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+}
+
+.landing-page {
+  height: 100vh;              /* full screen */
+  display: flex;
+  flex-direction: column;     /* stack vertically */
+  justify-content: flex-end;  /* push to bottom */
+  align-items: flex-start;    /* align left */
+  gap: 18px;
+
+  padding-bottom: 92px;              /* breathing room */
+  box-sizing: border-box;
+  background: linear-gradient(
+    10deg,
+    #2b2b2b 0%,
+    #000000 15%,
+    #000000 85%,
+    #2b2b2b 100%
+  );
+}
+
+.landing-buttons {
+  display: flex;
+  justify-content: flex-start; /* left align */
+  gap: 12px;                   /* space between buttons */
+  padding-left: 25px;
+  z-index: 20;
+}
+
+.landing-text {
+  padding-left: 22px;
+}
+
+.landing-text #mun-small {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.landing-text #mun {
+  font-size: 85px;
+  line-height: 74px;
+  font-weight: bold;
+}
+
+.landing-text #school-name {
+  font-size: 42px;
+  font-weight: 550;
+  line-height: 64px;
+}
+
+.dev-button {
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(1px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.dev-button:hover {
+  cursor: pointer;
+}
+.dev-button:active {
+  scale: 0.9
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 40
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 998;
+  pointer-events: none;
+}
+
+.overlay.active {
+  pointer-events: auto;
+}
+
+.side-menu {
+  position: fixed;
+  top: 25vh;
+  right: 0px;
+  height: 50vh;
+  width: 200px;
+
+  background: rgba(0,0,0,0.1);
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  color: white;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+
+  z-index: 999;
+  padding: 0px 20px;
+
+  backdrop-filter: blur(5px);
+}
+
+.side-menu.open {
+  transform: translateX(-10px);
+}
+
+.side-menu select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+
+  background: black;
+  backdrop-filter: blur(2px);
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 6px;
+}
+
+
+/* container switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.switch:hover {
+  cursor: pointer;
+}
+
+/* hide default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* background track */
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: #444;
+  border-radius: 24px;
+  transition: 0.3s ease-in-out;
+}
+
+/* circle */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+}
+
+/* ON state */
+.switch input:checked + .slider {
+  background-color: #888;
+}
+
+/* move circle when ON */
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+@media (min-width: 700px) {
+  .landing-text {
+    padding-left: 30px;
+  }
+  
+  .landing-text #mun-small {
+    font-size: 28px;
+    font-weight: 200;
+  }
+  
+  .landing-text #mun {
+    font-size: 105px;
+    line-height: 95px;
+    font-weight: bold;
+  }
+  
+  .landing-text #school-name {
+    font-size: 50px;
+    font-weight: 550;
+    line-height: 64px;
+  }
+
+  .landing-page {
+    height: 100vh;              /* full screen */
+    display: flex;
+    flex-direction: column;     /* stack vertically */
+    justify-content: flex-end;  /* push to bottom */
+    align-items: flex-start;    /* align left */
+    gap: 18px;
+  
+    padding-bottom: 92px;              /* breathing room */
+    box-sizing: border-box;
+    background: linear-gradient(
+      10deg,
+      #2b2b2b 0%,
+      #000000 15%,
+      #000000 85%,
+      #2b2b2b 100%
+    );
+  }
+  
+  .landing-buttons {
+    display: flex;
+    justify-content: flex-start; /* left align */
+    gap: 12px;                   /* space between buttons */
+    padding-left: 25px;
+    z-index: 20;
+  }  
+
+}
+
+@media (min-width: 956px) {
+  .landing-text {
+    padding-left: 38px;
+  }
+  
+  .landing-text #mun-small {
+    font-size: 35px;
+    font-weight: 200;
+  }
+  
+  .landing-text #mun {
+    font-size: 125px;
+    line-height: 110px;
+    font-weight: bold;
+  }
+  
+  .landing-text #school-name {
+    font-size: 65px;
+    font-weight: 550;
+    line-height: 75px;
+  }
+
+  .landing-page {
+    height: 100vh;              /* full screen */
+    display: flex;
+    flex-direction: column;     /* stack vertically */
+    justify-content: flex-end;  /* push to bottom */
+    align-items: flex-start;    /* align left */
+    gap: 18px;
+  
+    padding-bottom: 92px;              /* breathing room */
+    box-sizing: border-box;
+    background: linear-gradient(
+      10deg,
+      #2b2b2b 0%,
+      #000000 15%,
+      #000000 85%,
+      #2b2b2b 100%
+    );
+  }
+  
+  .landing-buttons {
+    display: flex;
+    justify-content: flex-start; /* left align */
+    gap: 12px;                   /* space between buttons */
+    padding-left: 25px;
+    z-index: 20;
+  }  
+}

@@ -14,7 +14,7 @@ function App() {
   //stars
   const [particlesOn, setParticlesOn] = useState(true);
   //theme var
-  const [theme, setTheme] = useState<Theme>("black");
+  const [theme, setTheme] = useState<Theme>("darkGreen");
 
   const themes: Record<Theme, string> = {
     black: "linear-gradient(10deg, #2b2b2b 0%, #000000 15%, #000000 85%, #2b2b2b 100%)",

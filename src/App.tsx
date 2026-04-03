@@ -3,8 +3,9 @@ import Particles from './components/background/Particles';
 import LandingButton from './components/landing-button/landing-button';
 // import RotatingText from './components/RotatingText/RotatingText';
 import ScrollFloat from './components/ScrollFloat/ScrollFloat';
-import ScrollReveal from './components/ScrollReveal/ScrollReveal';
+// import ScrollReveal from './components/ScrollReveal/ScrollReveal';
 import VariableProximity from './components/VariableProximity/VariableProximity';
+import SimpleReveal from './components/SimpleReveal/SimpleReveal';
 import SpotlightCard from './components/SpotlightCard/SpotlightCard';
 
 import './App.css'
@@ -178,6 +179,7 @@ const containerRef = useRef<HTMLDivElement>(null);
           >
             About Conference
           </ScrollFloat> 
+{/*
           <div style={{maxWidth: '1000px'}}>
             <ScrollReveal
               baseOpacity={0.1}
@@ -192,6 +194,12 @@ const containerRef = useRef<HTMLDivElement>(null);
             and experience diplomacy in action.
             </ScrollReveal>
           </div>
+*/}
+        <SimpleReveal>
+          <p className='reveal-description'>
+            DPS Mohali MUN 2026 is our first Model United Nations conference, where students debate global issues, build critical thinking skills, and experience diplomacy in action. 
+          </p>
+        </SimpleReveal>
         </div>
         <div className='about-decoration'>
 {/*          <RotatingText

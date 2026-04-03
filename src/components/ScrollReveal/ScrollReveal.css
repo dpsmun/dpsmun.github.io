@@ -3,12 +3,15 @@
 }
 
 .scroll-reveal-text {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  line-height: 1.4;
+  font-size: clamp(1.4rem, 3vw, 1.4rem);
+  line-height: 1.5;
   font-weight: 600;
 }
 
 .word {
   display: inline-block;
+  will-change: opacity, filter, transform;
+  backface-visibility: hidden; /* forces GPU layer */
+  transform: translateZ(0);    /* forces GPU layer */
 }
 

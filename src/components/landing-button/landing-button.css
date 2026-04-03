@@ -47,6 +47,9 @@
 
 @media (min-width: 956px) {
   .btn {
-    font-size: 24px;
+    font-size: 30px;
+  }
+  .btn.filled {
+    padding: 18px 46px;
   }
 }

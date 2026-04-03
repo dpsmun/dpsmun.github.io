@@ -257,20 +257,20 @@
   }
   
   .landing-text #mun-small {
-    font-size: 35px;
+    font-size: 42px;
     font-weight: 200;
   }
   
   .landing-text #mun {
-    font-size: 125px;
+    font-size: 156px;
     line-height: 110px;
     font-weight: bold;
   }
   
   .landing-text #school-name {
-    font-size: 65px;
+    font-size: 76px;
     font-weight: 550;
-    line-height: 75px;
+    line-height: 120px;
   }
 
   .landing-page {
@@ -282,7 +282,7 @@
     width: 100vw;
     gap: 18px;
   
-    padding-bottom: 92px;              /* breathing room */
+    padding-bottom: 104px;              /* breathing room */
     box-sizing: border-box;
     background: linear-gradient(
       10deg,
@@ -299,7 +299,7 @@
     display: flex;
     justify-content: flex-start; /* left align */
     gap: 12px;                   /* space between buttons */
-    padding-left: 25px;
+    padding-left: 32px;
     z-index: 20;
   }  
 }

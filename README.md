@@ -2,7 +2,7 @@
 
 > A personal project for the DPS Mohali Model United Nations 2026 website. **Not official yet.**
 
-## [Hosted Website](https://your-website-url.com)
+## [Hosted Website](https://dpsmun.github.io)
 
 ## Demo
 

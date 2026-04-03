@@ -25,7 +25,7 @@ const FloatReveal: React.FC<FloatRevealProps> = ({ children }) => {
         scrollTrigger: {
           trigger: el,
           start: 'top 100%',   // animation starts as element enters viewport
-          end: 'top 60%',      // ends when element is mid-viewport
+          end: 'top 70%',      // ends when element is mid-viewport
           scrub: true,         // fully scroll-controlled
         },
       }

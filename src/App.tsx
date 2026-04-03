@@ -46,6 +46,7 @@ function App() {
       )}
 
       <div className='landing-page' style={{ background: themes[theme] }}>
+      <div className='landing-content'>
         <div className='landing-text'>
           <p>
             <span id='school-name'>DPS Mohali</span>
@@ -60,6 +61,7 @@ function App() {
           <LandingButton text="Register Now" variant="filled" />
           <LandingButton text="Comittees" variant="hollow" /> 
         </div>
+      </div>
       </div>
 
       <button

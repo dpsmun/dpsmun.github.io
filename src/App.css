@@ -28,6 +28,17 @@
   );
 }
 
+.landing-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;     /* stack vertically */
+  justify-content: flex-end;  /* push to bottom */
+  align-items: flex-start;    /* align left */
+  gap: 18px;
+  width: 100%;
+  }
+
 .landing-buttons {
   display: flex;
   justify-content: flex-start; /* left align */
@@ -267,7 +278,8 @@
     display: flex;
     flex-direction: column;     /* stack vertically */
     justify-content: flex-end;  /* push to bottom */
-    align-items: flex-start;    /* align left */
+    align-items: center;    /* align left */
+    width: 100vw;
     gap: 18px;
   
     padding-bottom: 92px;              /* breathing room */
@@ -279,7 +291,9 @@
       #000000 85%,
       #2b2b2b 100%
     );
+
   }
+
   
   .landing-buttons {
     display: flex;

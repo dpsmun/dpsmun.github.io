@@ -216,6 +216,7 @@ const containerRef = useRef<HTMLDivElement>(null);
           />
 */}
         <SpotlightCard className="custom-spotlight-card" spotlightColor="#c9a84d33">
+        <SimpleReveal>
           <div
           ref={containerRef}
           style={{position: 'relative'}}
@@ -234,8 +235,10 @@ const containerRef = useRef<HTMLDivElement>(null);
             Explore a variety of topics across multiple committees, each designed to challenge and inspire. 
           </p>
           </div>
+        </SimpleReveal>
         </SpotlightCard>
         <SpotlightCard className="custom-spotlight-card" spotlightColor="#c9a84d33">
+        <SimpleReveal>
           <div
           ref={containerRef}
           style={{position: 'relative'}}
@@ -254,8 +257,10 @@ const containerRef = useRef<HTMLDivElement>(null);
             Engage in two action-packed days of debate, collaboration, and global problem-solving. 
           </p>
           </div>
+        </SimpleReveal>
         </SpotlightCard>
         <SpotlightCard className="custom-spotlight-card" spotlightColor="#c9a84d33">
+        <SimpleReveal>
           <div
           ref={containerRef}
           style={{position: 'relative'}}
@@ -274,8 +279,10 @@ const containerRef = useRef<HTMLDivElement>(null);
             Open to students from grades 6 to 12, offering a platform for all levels to contribute.
           </p>
           </div>
+        </SimpleReveal>
         </SpotlightCard>
         <SpotlightCard className="custom-spotlight-card" spotlightColor="#c9a84d33">
+        <SimpleReveal>
           <div
           ref={containerRef}
           style={{position: 'relative'}}
@@ -294,6 +301,7 @@ const containerRef = useRef<HTMLDivElement>(null);
             Make lasting connections and create experiences that go beyond the conference.
           </p>
           </div>
+        </SimpleReveal>
         </SpotlightCard>
 
         </div>

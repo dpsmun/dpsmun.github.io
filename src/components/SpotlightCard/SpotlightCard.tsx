@@ -4,7 +4,7 @@ import './SpotlightCard.css';
 
 interface SpotlightCardProps extends React.PropsWithChildren {
   className?: string;
-  spotlightColor?: `#${string}`;
+  spotlightColor?: `${string}`;
 }
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({

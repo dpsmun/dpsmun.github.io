@@ -1,16 +1,39 @@
-import { useState, useRef } from 'react'
+import { useState/* , useRef */ } from 'react'
 import Particles from './components/background/Particles';
 import LandingButton from './components/landing-button/landing-button';
 // import RotatingText from './components/RotatingText/RotatingText';
 import ScrollFloat from './components/ScrollFloat/ScrollFloat';
 // import ScrollReveal from './components/ScrollReveal/ScrollReveal';
-import VariableProximity from './components/VariableProximity/VariableProximity';
+// import VariableProximity from './components/VariableProximity/VariableProximity';
 import SimpleReveal from './components/SimpleReveal/SimpleReveal';
-import SpotlightCard from './components/SpotlightCard/SpotlightCard';
+// import SpotlightCard from './components/SpotlightCard/SpotlightCard';
+import PillNav from './components/PillNav/PillNav';
+import TextType from './components/TextType/TextType';
+import CommitteeGrid from './components/CommitteeGrid/CommitteeGrid';
+import Countdown from './components/Countdown/Countdown';
+import PerksCarousel from './components/PerksCarousel/PerksCarousel';
+import MunRoadmap from './components/MunRoadmap/MunRoadmap';
+// import MagicBento from './components/MagicBento/MagicBento';
+
+import logo from './assets/logo.png'
+import Stack from './components/Stack/Stack';
+import Frame1 from './assets/Frame 1.png';
+import Frame2 from './assets/Frame 2.png';
+import Frame3 from './assets/Frame 3.png';
+import Frame4 from './assets/Frame 4.png';
 
 import './App.css'
 
+if (typeof window !== 'undefined') {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+}
+
 function App() {
+
+  // For debug server so nav is not broken (I refresh a LOT)
+
   type Theme = "black" | "darkGreen" | "forestGreen" | "everforest" | "darkerGreen";
   type ClosingTheme = "black" | "darkGreen" | "forestGreen" | "everforest" | "darkerGreen";
   type MainTheme =  "black" | "darkGreen" | "forestGreen" | "everforest" | "darkerGreen";
@@ -47,10 +70,17 @@ function App() {
     darkerGreen: "#172412"
   }
 
+  const images = [
+    Frame1,
+    Frame2,
+    Frame3,
+    Frame4
+  ];
+
 const currentTheme: Theme = theme; // the theme state I already have
 const nextDivBackground = closingThemes[currentTheme];
 const mainBackground = mainTheme[currentTheme];
-const containerRef = useRef<HTMLDivElement>(null);
+// const containerRef = useRef<HTMLDivElement>(null);
 
   // const cardItems = [
   //   {
@@ -90,8 +120,28 @@ const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
-
+      <Countdown />
       <div className='grid-bg' />
+      <div className='nav-container'>
+      <PillNav
+        logo={logo}
+        logoAlt="Company Logo"
+        items={[
+          { label: 'Home', href: '#home' },
+          { label: 'About', href: '#about' },
+          { label: 'Committees', href: '#committee' },
+          { label: 'Contact', href: '/contact' }
+        ]}
+        activeHref="/"
+        className="custom-nav"
+        ease="power2.easeOut"
+        baseColor="#000000"
+        pillColor="#ffffff"
+        hoveredPillTextColor="#ffffff"
+        pillTextColor="#000000"
+        initialLoadAnimation={true}
+      />
+      </div>
 
       {particlesOn && (
         <div style={{ width: '100%', height: '700px', position: 'absolute' }}>
@@ -110,9 +160,18 @@ const containerRef = useRef<HTMLDivElement>(null);
 
       )}
 
+      <section id="home">
       <div className='landing-page' style={{ background: themes[theme] }}>
       <div className='landing-content'>
         <div className='landing-text'>
+            <TextType 
+              text={["The 1st edition of DPS Mohali MUN", "A new era of Diplomacy Begins!", "Where global leaders converge"]}
+              typingSpeed={50}
+              pauseDuration={1500}
+              showCursor
+              cursorCharacter="●"
+              deletingSpeed={50}
+            />
           <p>
             <span id='school-name'>DPS Mohali</span>
             <br />
@@ -121,13 +180,15 @@ const containerRef = useRef<HTMLDivElement>(null);
             <span id='mun-small'>Model United Nations 2026</span>
             <br />
           </p>
+          <p className='landing-date'> 9th &amp; 10th May </p>
         </div>
         <div className='landing-buttons'>
           <LandingButton text="Register Now" variant="filled" />
-          <LandingButton text="Comittees" variant="hollow" /> 
+          <LandingButton text="Comittees" variant="hollow" href='#committee'/> 
         </div>
       </div>
       </div>
+      </section>
 
       <button
       className='dev-button material-symbols-outlined'
@@ -167,7 +228,9 @@ const containerRef = useRef<HTMLDivElement>(null);
         </div>
 
       </div>
-      <div className='about-content' style={{ background: nextDivBackground }}>
+      <div className='page2' style={{ background: nextDivBackground }}>
+      <section id='about'>
+      <div className='about-content'>
       <div className='about-page'>
         <div className='about-text'>
           <ScrollFloat
@@ -215,15 +278,15 @@ const containerRef = useRef<HTMLDivElement>(null);
             rotationInterval={2000}
           />
 */}
-        <SpotlightCard className="custom-spotlight-card" spotlightColor="#c9a84d33">
+{/*
+        <SpotlightCard className="custom-spotlight-card" spotlightColor="#FFFFFF4B">
         <SimpleReveal>
           <div
           ref={containerRef}
           style={{position: 'relative'}}
           >
             <VariableProximity
-              label={'20+ Committees'}
-              className={'variable-proximity-demo'}
+              label={'20+ Committees'} className={'variable-proximity-demo'}
               fromFontVariationSettings="'wght' 400, 'opsz' 9"
               toFontVariationSettings="'wght' 1000, 'opsz' 40"
               containerRef={containerRef as React.RefObject<HTMLElement>}
@@ -237,7 +300,7 @@ const containerRef = useRef<HTMLDivElement>(null);
           </div>
         </SimpleReveal>
         </SpotlightCard>
-        <SpotlightCard className="custom-spotlight-card" spotlightColor="#c9a84d33">
+        <SpotlightCard className="custom-spotlight-card" spotlightColor="#FFFFFF4B">
         <SimpleReveal>
           <div
           ref={containerRef}
@@ -259,7 +322,7 @@ const containerRef = useRef<HTMLDivElement>(null);
           </div>
         </SimpleReveal>
         </SpotlightCard>
-        <SpotlightCard className="custom-spotlight-card" spotlightColor="#c9a84d33">
+        <SpotlightCard className="custom-spotlight-card" spotlightColor="#FFFFFF4B">
         <SimpleReveal>
           <div
           ref={containerRef}
@@ -281,7 +344,7 @@ const containerRef = useRef<HTMLDivElement>(null);
           </div>
         </SimpleReveal>
         </SpotlightCard>
-        <SpotlightCard className="custom-spotlight-card" spotlightColor="#c9a84d33">
+        <SpotlightCard className="custom-spotlight-card" spotlightColor="#ffffff4B">
         <SimpleReveal>
           <div
           ref={containerRef}
@@ -303,13 +366,64 @@ const containerRef = useRef<HTMLDivElement>(null);
           </div>
         </SimpleReveal>
         </SpotlightCard>
-
+*/}
+          <div className='stack-container' style={{ width: 250, height: 250 }}>
+            <Stack
+              randomRotation={false}
+              sensitivity={170}
+              sendToBackOnClick={true}
+              cards={images.map((src, i) => (
+                <img 
+                  key={i} 
+                  src={src} 
+                  alt={`card-${i + 1}`} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              ))}
+              autoplayDelay={3000}
+              pauseOnHover
+          />
+          </div>
         </div>
       </div>
       </div>
-        
+      <div>
+      {/*
+        <MagicBento 
+          textAutoHide={true}
+          enableStars
+          enableSpotlight
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect
+          spotlightRadius={400}
+          particleCount={12}
+          glowColor="132, 0, 255"
+          disableAnimations={false}
+        />
+      */}
+      <div className='decoration-wrapper'>
+      <MunRoadmap />
+
+      <PerksCarousel />
+      </div>
+      </div>
+
+      </section>
+      </div>
+
+      <div className='page3-wrapper' style={{background: mainBackground}}>
+      <div className='page3'>
+      <section id='committee'>
+        <CommitteeGrid />
+      </section>
+      </div>
+      </div>
+
       <div className='test-page' style={{ background: mainBackground }}>
       </div>
+        
 
     </>
   )

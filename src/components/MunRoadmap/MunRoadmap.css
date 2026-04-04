@@ -1,0 +1,134 @@
+
+.roadmap-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 20px;
+}
+
+.roadmap-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 12px; /* Re-added gap for that Bento look */
+  width: 100%;
+  box-sizing: border-box; /* Crucial: includes padding/border in width */
+}
+
+.roadman-item {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.roadmap-item:nth-child(1) { grid-area: 1 / 1 / 3 / 3; } /* Roll Call */
+.roadmap-item:nth-child(2) { grid-area: 1 / 3 / 4 / 4; } /* GSL (Tall) */
+.roadmap-item:nth-child(3) { grid-area: 3 / 1 / 5 / 2; } /* Mod */
+.roadmap-item:nth-child(4) { grid-area: 3 / 2 / 5 / 3; } /* Unmod */
+.roadmap-item:nth-child(5) { grid-area: 5 / 1 / 7 / 3; } /* Resolution */
+.roadmap-item:nth-child(6) { grid-area: 4 / 3 / 7 / 4; } /* Voting */
+
+.roadmap-item > div, 
+.roadmap-item [class*="border-glow"] {
+  width: 100%;
+
+  height: 100%;
+  display: flex;
+}
+
+/* Not needed with the new layout */
+
+/* .roadmap-item.wide { grid-column: span 2; } */
+/* .roadmap-item.tall { grid-row: span 2; } */
+
+.roadmap-card-content {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Text sits at the bottom */
+  position: relative;
+}
+
+.step-number {
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  opacity: 0.6;
+}
+
+.roadmap-card-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.roadmap-card-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+/* @media (max-width: 800px) { */
+/*   .roadmap-grid { */
+/*     display: flex; */
+/*     flex-direction: column; */
+/*     height: auto; */
+/*   } */
+/*    */
+/*   .roadmap-item { */
+/*     height: 200px; */
+/*   } */
+/* } */
+
+@media (max-width: 600px) {
+  .roadmap-container {
+    padding: 10px; /* Breathing room for the edges */
+    overflow-x: hidden;
+  }
+
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    height: 700px; /* Defined height so the 'fr' units have a base */
+  }
+
+  /* Mapping your grid-areas to the items */
+  .roadmap-item:nth-child(1) { grid-area: 1 / 1 / 2 / 7; }
+  .roadmap-item:nth-child(2) { grid-area: 2 / 1 / 3 / 5; }
+  .roadmap-item:nth-child(3) { grid-area: 2 / 5 / 4 / 7; }
+  .roadmap-item:nth-child(4) { grid-area: 3 / 1 / 5 / 5; }
+  .roadmap-item:nth-child(5) { grid-area: 5 / 1 / 6 / 5; }
+  .roadmap-item:nth-child(6) { grid-area: 4 / 5 / 6 / 7; }
+  /* Font adjustments for mobile bento */
+  .roadmap-card-content h3 {
+    font-size: 1rem;
+  }
+  .roadmap-card-content p {
+    font-size: 0.8rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

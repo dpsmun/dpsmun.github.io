@@ -1,0 +1,33 @@
+.countdown-wrapper {
+  position: fixed;
+  bottom: 30px;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 30px;
+  z-index: 100;
+}
+
+.countdown-fixed {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'JetBrains Mono', 'Courier New', monospace; /* Use your preferred mono font */
+  color: #fff;
+  z-index: 2000;
+}
+
+.time-val { font-size: 1.5rem; font-weight: 700; color: #fff; } /* Gold */
+.time-label { font-size: 0.7rem; opacity: 0.5; margin-left: 2px; }
+.countdown-divider { font-size: 1.2rem; opacity: 0.3; }
+
+@media (max-width: 768px) {
+  .countdown-wrapper {
+    justify-content: center;
+  }
+}

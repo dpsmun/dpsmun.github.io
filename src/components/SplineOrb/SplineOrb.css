@@ -1,0 +1,23 @@
+.spline-scroll-container {
+  position: fixed;
+  right: 0;
+  top: 5vh; /* Starts slightly below the top edge */
+  width: 400px; /* Change this if you want it bigger/smaller */
+  height: 400px;
+  
+  /* Pushes exactly half the width off the right side of the screen */
+  transform: translateX(50%); 
+  
+  z-index: 1000; 
+  
+  /* CRITICAL: Lets the user click "through" the 3D canvas onto your site */
+  pointer-events: none; 
+}
+
+/* Optional: Make it smaller on mobile so it doesn't crowd the screen */
+@media (max-width: 768px) {
+  .spline-scroll-container {
+    width: 250px;
+    height: 250px;
+  }
+}

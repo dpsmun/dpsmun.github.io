@@ -250,7 +250,7 @@ const toggleMobileMenu = () => {
         y: 10,
         duration: 0.2,
         ease,
-        onComplete: () => gsap.set(menu, { visibility: 'hidden' })
+        onComplete: () => { gsap.set(menu, { visibility: 'hidden' }); }
       });
     }
   }

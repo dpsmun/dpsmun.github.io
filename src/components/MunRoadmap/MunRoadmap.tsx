@@ -1,4 +1,5 @@
 import BorderGlow from '../BorderGlow/BorderGlow';
+import FloatRevealEarly from '../SimpleRevealEarly/SimpleRevealEarly';
 import './MunRoadmap.css';
 
 interface MunRoadmapProps {
@@ -31,13 +32,15 @@ const MunRoadmap = ({ theme }: MunRoadmapProps) => {
       <div className="roadmap-grid">
         {roadmapSteps.map((step) => (
           <div key={step.id} className={`roadmap-item ${step.size}`}>
-            <BorderGlow backgroundColor={currentBg}>
-              <div className="roadmap-card-content">
-                <span className="step-number">{step.id}</span>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </div>
-            </BorderGlow>
+            <FloatRevealEarly>
+              <BorderGlow backgroundColor={currentBg}>
+                <div className="roadmap-card-content">
+                  <span className="step-number">{step.id}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
+                </div>
+              </BorderGlow>
+            </FloatRevealEarly>
           </div>
         ))}
       </div>

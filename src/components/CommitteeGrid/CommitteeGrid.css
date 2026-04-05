@@ -1,87 +1,263 @@
-.bento-container {
-  padding: 80px 5vw;
-  background-color: transparent;
-}
-
-.section-title {
-  color: #e0b643;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  text-align: left;
-  letter-spacing: -1px;
-}
-
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: auto;
-  gap: 8px;
-
-}
-
-.bento-item.large, .bento-item.wide {
-  grid-column: span 2;
-}
-
-
-.bento-content {
-  padding: 20px;
+.comm-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 2.5rem;
+  padding: 60px 20px 0px 20px;
+  height: fit-content;
+  justify-content: flex-end;
+}
+
+.comm-grid {
+  display: grid;
+  height: fit-content !important;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(7, 100px);
+  gap: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 0px !important;
+}
+
+.comm-item {
+  width: 100%;
   height: 100%;
-}
-
-.bento-header {
   display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
-.dot {
+/* Grid Mapping */
+.comm-item:nth-child(1) { grid-area: 3 / 4 / 6 / 7; } 
+.comm-item:nth-child(2) { grid-area: 1 / 4 / 3 / 7; } 
+.comm-item:nth-child(3) { grid-area: 1 / 7 / 4 / 10; } 
+.comm-item:nth-child(4) { grid-area: 1 / 1 / 4 / 4; } 
+.comm-item:nth-child(5) { grid-area: 4 / 1 / 6 / 4; } 
+.comm-item:nth-child(6) { grid-area: 4 / 7 / 8 / 10; } 
+.comm-item:nth-child(7) { grid-area: 6 / 1 / 8 / 4; } 
+.comm-item:nth-child(8) { grid-area: 6 / 4 / 8 / 7; } 
+
+/* Ensure BorderGlow and GSAP wrappers fill the cell */
+.comm-item > div, 
+.comm-item [class*="border-glow"] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.comm-card-content {
+  padding: 1.5rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* This pushes the header to the top and agenda to the bottom */
+  position: relative;
+}
+
+.comm-header {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+/* Forces Dot and Text to stay together regardless of layout */
+.comm-title-row {
+  display: flex;
+  align-items: center; /* Vertical center dot with text */
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.comm-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  box-shadow: 0 0 10px currentColor;
-}
-
-.comm-name {
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  opacity: 0.9;
+  box-shadow: 0 0 12px currentColor;
+  flex-shrink: 0;
 }
 
 .comm-agenda {
-  font-size: clamp(0.7rem, 2vw, 1rem);
-  line-height: 1.2;
-  font-weight: 300;
-  margin-top: auto;
-}
-
-.custom-spotlight-card {
   height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* --- THE ICON ENGINE --- */
+.comm-hero-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  transition: transform 0.3s ease;
+}
+
+.comm-hero-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  /* Allow the container to grow as much as possible */
+  flex-grow: 1; 
+  min-height: 0; /* Critical for flex-grow to work inside a flex column */
+}
+.comm-hero-symbol {
+  /* Using viewport-width or large rem ensures it scales up */
+  font-size: clamp(3rem, 8vw, 6rem); 
   width: 100%;
-  padding: 12px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-variation-settings: 'FILL' 1, 'wght' 300; /* Lighter weight looks cleaner when large */
+  text-shadow: 0 0 30px currentColor; /* Stronger aura for larger icon */
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-  .bento-grid {
+.comm-hero-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px currentColor);
+}
+
+/* --- DESKTOP LAYOUTS --- */
+
+/* INLINE: Icon centered between text end and card end */
+.layout-d-inline {
+  flex-direction: row;
+  align-items: flex-start; /* Key fix: keeps heading at the top */
+  justify-content: space-between;
+  height: 75%;
+}
+
+.layout-d-inline .comm-title-row {
+  margin-top: 5px; /* Tiny adjustment to align dot/text with icon top if needed */
+}
+
+.layout-d-inline .comm-hero-icon-container {
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center; /* Keeps the icon vertically centered in the header row */
+}
+/* STACKED: Icon below text, taking max space */
+.layout-d-stack {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  height: 80%;
+}
+
+.layout-d-stack .comm-hero-icon-container {
+  align-self: center; /* Centers the big icon horizontally */
+  width: 100%; /* Spans full width of card */
+  flex-grow: 1; /* Sucks up all vertical space until it hits the agenda */
+  max-height: 180px; /* Adjust based on your cell sizes */
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+  .layout-m-inline {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+  
+  .layout-m-stack {
+    flex-direction: column !important;
+  }
+
+  .comm-hero-icon-container {
+    max-height: 80px;
+  }
+}
+
+/* Mobile-specific grid for 8 cards */
+@media (max-width: 768px) {
+  .comm-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(17, 60px); /* Small increments for flexibility */
+    height: auto;
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    padding: 10px;
   }
-  .bento-item.large, .bento-item.wide {
-    grid-column: span 2;
+
+  /* Card Spans */
+  .comm-item:nth-child(1) { grid-area: 1 / 1 / 6 / 2; }  /* Large Top (UNSC) */
+  .comm-item:nth-child(2) { grid-area: 10 / 1 / 13 / 2; }  /* Tall Left (AIPPM) */
+  .comm-item:nth-child(3) { grid-area: 1 / 2 / 6 / 3; }  /* Short Right (MARVEL) */
+  .comm-item:nth-child(4) { grid-area: 9 / 2 / 14 / 3; }  /* Tall Right (MAGIC) */
+  .comm-item:nth-child(5) { grid-area: 6 / 2 / 9 / 3; } /* Mid Left (IPL) */
+  .comm-item:nth-child(6) { grid-area: 13 / 1 / 18 / 2; } /* Tall Right (FIFA) */
+  .comm-item:nth-child(7) { grid-area: 6 / 1 / 10 / 2; }/* Mid Left (F1) */
+  .comm-item:nth-child(8) { grid-area: 14 / 2 / 18 / 3; }/* Final offset (NBA) */
+  
+  /* Extra styling to keep content tight in masonry */
+  .comm-card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content in uneven boxes */
+    padding: 15px;
+  }
+  .comm-agenda {
+    text-overflow: clip;
   }
 }
 
-/* @media (max-width: 600px) { */
-/*   .bento-grid { */
-/*     grid-template-columns: 1fr; */
-/*     grid-auto-rows: auto; */
-/*   } */
-/*   .bento-item { */
-/*     grid-column: span 1 !important; */
-/*   } */
-/* } */
+@media (max-height: 1142px) {
+  .comm-grid {
+    height: 1200px;
+  }
+}
+
+/* --- Ultra-Small Screens (Phones < 480px) --- */
+@media (max-width: 480px) {
+  .comm-grid {
+    display: flex; /* Kill the grid math */
+    flex-direction: column;
+    height: auto !important;
+    gap: 16px;
+    padding: 0;
+  }
+
+  .comm-item {
+    width: 100%;
+    /* Let the card height be determined by its content */
+    height: auto !important; 
+    display: block;
+    grid-area: auto !important; /* Reset the masonry spans */
+  }
+
+  .comm-card-content {
+    /* Give the cards a consistent vertical rhythm */
+    min-height: 180px; 
+    padding: 1.25rem;
+    justify-content: flex-start;
+  }
+
+  /* Force all mobile cards to an 'inline' style for better scanning */
+  .comm-header {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 15px;
+  }
+
+  .comm-hero-icon-container {
+    max-height: 50px !important;
+    width: 60px !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+  }
+
+  .comm-agenda {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 10px;
+    /* Remove the 'flex-end' alignment so text stays under the header */
+    display: block; 
+  }
+}
+

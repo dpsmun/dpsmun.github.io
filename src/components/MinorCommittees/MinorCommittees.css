@@ -1,0 +1,130 @@
+.minor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px 60px 20px; /* Top padding is 0 to merge with previous grid */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Update your original CommitteeGrid.css to have: padding: 60px 20px 0 20px; */
+
+.minor-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(7, 100px);
+  gap: 14px;
+  width: 100%;
+}
+
+.minor-item {
+  width: 100%;
+  height: 100%;
+}
+
+.minor-item > div,
+.minor-item [class*="reveal"],
+.minor-item .card-main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.minor-card-content {
+  flex: 1; /* Forces the content to take up all available space in the BorderGlow */
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Packing logic for 6 cards in a 12-col grid */
+.minor-item:nth-child(1) { grid-area: 1 / 1 / 3 / 3; } /* 1/3 width */
+.minor-item:nth-child(2) { grid-area: 1 / 5 / 3 / 7; } 
+.minor-item:nth-child(3) { grid-area: 1 / 7 / 4 / 9; }
+.minor-item:nth-child(4) { grid-area: 4 / 7 / 6 / 9; } /* 1/2 width */
+.minor-item:nth-child(5) { grid-area: 3 / 4 / 6 / 7; }  /* 1/4 width */
+.minor-item:nth-child(6) { grid-area: 1 / 3 / 3 / 5; }
+.minor-item:nth-child(7) { grid-area: 3 / 1 / 5 / 4; }
+.minor-item:nth-child(8) { grid-area: 5 / 1 / 8 / 4; }
+.minor-item:nth-child(9) { grid-area: 6 / 4 / 8 / 7; }
+.minor-item:nth-child(10) { grid-area: 6 / 7 / 8 / 9; }
+.minor-item:nth-child(11) { grid-area: 1 / 9 / 3 / 11; }
+.minor-item:nth-child(12) { grid-area: 3 / 9 / 6 / 11; }
+.minor-item:nth-child(13) { grid-area: 6 / 9 / 8 / 11; }
+
+
+
+
+.minor-card-content {
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.minor-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.minor-agenda {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+  margin-top: 10px;
+  /* Keep it to 2 lines max for the packed look */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .minor-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(9, 100px);
+    gap: 14px;
+    width: 100%;
+  }
+  .minor-item:nth-child(1) { grid-area: 1 / 1 / 4 / 3; } /* 1/3 width */
+  .minor-item:nth-child(2) { grid-area: 1 / 3 / 3 / 5; } 
+  .minor-item:nth-child(3) { grid-area: 1 / 5 / 3 / 9; }
+  .minor-item:nth-child(4) { grid-area: 4 / 1 / 6 / 3; } /* 1/2 width */
+  .minor-item:nth-child(5) { grid-area: 6 / 1 / 8 / 3; }  /* 1/4 width */
+  .minor-item:nth-child(6) { grid-area: 3 / 7 / 5 / 9; }
+  .minor-item:nth-child(7) { grid-area: 3 / 3 / 5 / 7; }
+  .minor-item:nth-child(8) { grid-area: 5 / 5 / 7 / 7; }
+  .minor-item:nth-child(9) { grid-area: 5 / 3 / 7 / 5; }
+  .minor-item:nth-child(10) { grid-area: 8 / 5 / 10 / 9; }
+  .minor-item:nth-child(11) { grid-area: 7 / 3 / 7 / 9; }
+  .minor-item:nth-child(12) { grid-area: 5 / 7 / 7 / 9; }
+  .minor-item:nth-child(13) { grid-area: 8 / 1 / 10 / 5; }
+}
+
+/* Mobile: List mode for < 480px as we planned */
+@media (max-width: 575px) {
+  .minor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(14, 100px);
+    gap: 14px;
+    width: 100%;
+  }
+  .minor-item:nth-child(1) { grid-area: 1 / 1 / 3 / 3; } /* 1/3 width */
+  .minor-item:nth-child(2) { grid-area: 1 / 3 / 4 / 4; } 
+  .minor-item:nth-child(3) { grid-area: 3 / 1 / 4 / 3; }
+  .minor-item:nth-child(4) { grid-area: 4 / 2 / 6 / 4; } /* 1/2 width */
+  .minor-item:nth-child(5) { grid-area: 4 / 1 / 7 / 2; }  /* 1/4 width */
+  .minor-item:nth-child(6) { grid-area: 6 / 2 / 7 / 4; }
+  .minor-item:nth-child(7) { grid-area: 7 / 1 / 8 / 4; }
+  .minor-item:nth-child(8) { grid-area: 8 / 1 / 9 / 3; }
+  .minor-item:nth-child(9) { grid-area: 8 / 3 / 11 / 4; }
+  .minor-item:nth-child(10) { grid-area: 9 / 1 / 11 / 3; }
+  .minor-item:nth-child(11) { grid-area: 11 / 1 / 12 / 4; }
+  .minor-item:nth-child(12) { grid-area: 12 / 1 / 13 / 3; }
+  .minor-item:nth-child(13) { grid-area: 12 / 3 / 13 / 4; }
+}
+

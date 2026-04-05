@@ -1,70 +1,165 @@
-import SimpleReveal from "../SimpleReveal/SimpleReveal";
-import SpotlightCard from "../SpotlightCard/SpotlightCard";
-import VariableProximity from "../VariableProximity/VariableProximity";
-import ScrollFloat from "../ScrollFloat/ScrollFloat";
+import BorderGlow from '../BorderGlow/BorderGlow';
+import FloatRevealEarly from '../SimpleRevealEarly/SimpleRevealEarly';
+import VariableProximity from '../VariableProximity/VariableProximity';
+import ScrollFloat from '../ScrollFloat/ScrollFloat';
 import { useRef, type RefObject } from "react";
-import './CommitteeGrid.css'
+import './CommitteeGrid.css';
 
-const CommitteeGrid = () => {
-  // Define exact hex values to satisfy your ${string} type requirement
-  // Using 20% opacity versions of the theme colors
-  const committees = [
-    { name: "UNSC", size: "large", agenda: "Venezuelan President’s detention and global security.", glow: "#E0B6434B", color: "#E0B643" },
-    { name: "AIPPM", size: "medium", agenda: "India's National Security Doctrine & Border Tensions.", glow: "#10B9814B", color: "#10B981" },
-    { name: "MARVEL", size: "small", agenda: "Doctor Doom’s Ascendancy and Multiversal Implications.", glow: "#EF44444B", color: "#EF4444" },
-    { name: "MINISTRY OF MAGIC", size: "wide", agenda: "Restoration of Wizarding Governance & Restricted Spells.", glow: "#A855F74B", color: "#A855F7" },
-    { name: "IPL AU", size: "medium", agenda: "Review of Auction Strategies and Strategic Overbidding.", glow: "#64748B4B", color: "#64748B" },
-    { name: "FIFA", size: "small", agenda: "Addressing Corruption and Restoring Integrity.", glow: "#3B82F64B", color: "#3B82F6" },
-    { name: "F1", size: "small", agenda: "Investigation into Mysterious Technical Failures.", glow: "#F59E0B4B", color: "#F59E0B" },
-    { name: "NBA", size: "small", agenda: "Resignation of Franchise Owner amid uncertainty.", glow: "#EC48994B", color: "#EC4899" },
-  ];
+interface CommitteeGridProps {
+  theme: "black" | "darkGreen" | "forestGreen" | "everforest" | "darkerGreen";
+}
 
+const committeeSteps = [
+  { 
+    id: '01', 
+    name: "UNSC", 
+    icon: "public", 
+    isCustom: false, 
+    agenda: "Legal implications regarding the detention of the President of Venezuela.", 
+    color: "#E0B643",
+    desktopLayout: "stack", // Below heading
+    mobileLayout: "stack" 
+  },
+  { 
+    id: '02', 
+    name: "AIPPM", 
+    icon: "account_balance", 
+    isCustom: false, 
+    agenda: "Reviewing India's National Security Doctrine and border tensions.", 
+    color: "#10B981",
+    desktopLayout: "inline", // Next to heading
+    mobileLayout: "inline"
+  },
+  { 
+    id: '03', 
+    name: "MARVEL", 
+    icon: "/marvel.svg", 
+    isCustom: true, 
+    agenda: "Strategic response to Doctor Doom’s Ascendancy and Multiversal instability.", 
+    color: "#EF4444",
+    desktopLayout: "stack", // Below heading
+    mobileLayout: "stack"
+  },
+  { 
+    id: '04', 
+    name: "MINISTRY OF MAGIC", 
+    icon: "auto_fix_high", 
+    isCustom: false, 
+    agenda: "Restoring governance following the leak of restricted Ministry spells.", 
+    color: "#A855F7",
+    desktopLayout: "stack", // Below heading
+    mobileLayout: "stack"
+  },
+  { 
+    id: '05', 
+    name: "IPL AU", 
+    icon: "sports_cricket", 
+    isCustom: false, 
+    agenda: "Addressing strategic overbidding and competitive imbalance in franchises.", 
+    color: "#64748B",
+    desktopLayout: "inline",
+    mobileLayout: "inline"
+  },
+  { 
+    id: '06', 
+    name: "FIFA", 
+    icon: "sports_soccer", 
+    isCustom: false, 
+    agenda: "Investigating systemic corruption to restore integrity in football governance.", 
+    color: "#3B82F6",
+    desktopLayout: "stack", // Below heading
+    mobileLayout: "stack"
+  },
+  { 
+    id: '07', 
+    name: "F1", 
+    icon: "sports_motorsports", 
+    isCustom: false, 
+    agenda: "Investigating mysterious technical failures during the championship season.", 
+    color: "#F59E0B",
+    desktopLayout: "inline",
+    mobileLayout: "stack"
+  },
+  { 
+    id: '08', 
+    name: "NBA", 
+    icon: "sports_basketball", 
+    isCustom: false, 
+    agenda: "Sudden resignation of a franchise owner and commercial uncertainty.", 
+    color: "#EC4899",
+    desktopLayout: "inline",
+    mobileLayout: "stack"
+  },
+];
+
+const CommitteeGrid = ({ theme }: CommitteeGridProps) => {
+  const themeColors: Record<string, string> = {
+    black: "#000000",
+    darkGreen: "#182412",
+    forestGreen: "#182b1b",
+    everforest: "#13171a",
+    darkerGreen: "#0b1208"
+  };
+
+  const currentBg = themeColors[theme] || "#000000";
 
   return (
-    <div className="bento-container">
-      <ScrollFloat
-        animationDuration={1}
-        ease='back.inOut(2)'
-        scrollStart='center bottom+=50%'
-        scrollEnd='bottom bottom-=40%'
-        stagger={0.03}
-      >
-        Committee &amp; Agenda
-      </ScrollFloat> 
-       <div className="bento-grid">
-        {committees.map((comm, i) => {
-          // 2. Create a local ref for each card inside the map
-          const cardRef = useRef<HTMLDivElement>(null);
+    <div className="comm-container">
+      <div className="comm-title-wrapper">
+        <ScrollFloat
+          animationDuration={1}
+          ease='back.inOut(2)'
+          scrollStart='center bottom+=50%'
+          scrollEnd='bottom bottom-=40%'
+          stagger={0.03}
+        >
+          Committee &amp; Agenda
+        </ScrollFloat>
+      </div>
 
-          return (
-            <div key={i} className={`bento-item ${comm.size}`} ref={cardRef}>
-              <SpotlightCard 
-                className="custom-spotlight-card" 
-                spotlightColor={comm.glow}
-              >
-                <SimpleReveal>
-                  <div className="bento-content">
-                    <div className="bento-header">
-                      <span className="dot" style={{ backgroundColor: comm.color }}></span>
+      <div className="comm-grid">
+      {committeeSteps.map((comm) => {
+        const cardRef = useRef<HTMLDivElement>(null);
+      
+        return (
+          <div key={comm.id} className="comm-item">
+            <FloatRevealEarly>
+              <BorderGlow backgroundColor={currentBg} className='card-main'>
+                <div className="comm-card-content" ref={cardRef}>
+                  
+                  {/* Header with Dynamic Layout Classes */}
+                  <div className={`comm-header layout-d-${comm.desktopLayout} layout-m-${comm.mobileLayout}`}>
+                    {/* Wrap Dot and Name together to ensure they are ALWAYS on one line */}
+                    <div className="comm-title-row">
+                      <span className="comm-dot" style={{ backgroundColor: comm.color }}></span>
                       <VariableProximity
                         label={comm.name}
                         className={'variable-proximity-demo'}
                         fromFontVariationSettings="'wght' 600, 'opsz' 9"
                         toFontVariationSettings="'wght' 1000, 'opsz' 40"
-                        // 3. Attach the specific card's ref
                         containerRef={cardRef as RefObject<HTMLElement>} 
                         radius={100}
                         falloff='linear'
                         style={{ color: comm.color, cursor: 'default' }}
                       />
                     </div>
-                    <p className="comm-agenda">{comm.agenda}</p>
-                  </div>
-                </SimpleReveal>
-              </SpotlightCard>
-            </div>
-          );
-        })}
+                  
+                    {/* Large Hero Icon */}
+                    <div className="comm-hero-icon-container" style={{ color: comm.color }}>
+                      {comm.isCustom ? (
+                        <img src={comm.icon} alt="" className="comm-hero-svg" />
+                      ) : (
+                        <span className="material-symbols-rounded comm-hero-symbol">{comm.icon}</span>
+                      )}
+                    </div>
+                  </div> 
+                  <p className="comm-agenda">{comm.agenda}</p>
+                </div>
+              </BorderGlow>
+            </FloatRevealEarly>
+          </div>
+        );
+      })}
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ import CommitteeGrid from './components/CommitteeGrid/CommitteeGrid';
 import Countdown from './components/Countdown/Countdown';
 import PerksCarousel from './components/PerksCarousel/PerksCarousel';
 import MunRoadmap from './components/MunRoadmap/MunRoadmap';
+import MinorCommittees from './components/MinorCommittees/MinorCommittees';
 // import MagicBento from './components/MagicBento/MagicBento';
 
 import logo from './assets/logo.png'
@@ -44,7 +45,7 @@ function App() {
   //stars
   const [particlesOn, setParticlesOn] = useState(true);
   //theme var
-  const [theme, setTheme] = useState<Theme>("darkerGreen");
+  const [theme, setTheme] = useState<Theme>("black");
 
   const themes: Record<Theme, string> = {
     black: "linear-gradient(10deg, #2b2b2b 0%, #000000 15%, #000000 85%, #2b2b2b 100%)",
@@ -53,6 +54,7 @@ function App() {
     everforest: "linear-gradient(10deg, #131617 0%, #1E2326 25%, #1E2326 75%, #131617 100%)",
     darkerGreen: "linear-gradient(10deg, #0F190B 0%, #172412 25%, #172412 75%, #0F190B 100%)" 
   };
+
 
   const closingThemes: Record<ClosingTheme, string> = {
     black: "linear-gradient(-10deg, #000000 0%, #000000 85%, #2b2b2b 100%)",
@@ -69,6 +71,14 @@ function App() {
     everforest: "#1E2326",
     darkerGreen: "#172412"
   }
+
+  // const secondaryTheme: Record<MainTheme, string> = {
+  //   black: "rgba(30, 30, 30, 0.6)",
+  //   darkGreen: "rgba(53, 76, 43, 0.5)",
+  //   forestGreen: "rgba(53, 94, 59, 0.5)",
+  //   everforest: "rgba(50, 56, 60, 0.6)",
+  //   darkerGreen: "rgba(23, 36, 18, 0.6)"
+  // };
 
   const images = [
     Frame1,
@@ -120,6 +130,7 @@ const mainBackground = mainTheme[currentTheme];
 
   return (
     <>
+    <div className='site-wrapper'>
       <Countdown />
       <div className='grid-bg' />
       <div className='nav-container'>
@@ -191,7 +202,7 @@ const mainBackground = mainTheme[currentTheme];
       </section>
 
       <button
-      className='dev-button material-symbols-outlined'
+      className='dev-button material-symbols-rounded'
       onClick={ () => setIsOpen(!isOpen)}
       >
       menu
@@ -367,10 +378,11 @@ const mainBackground = mainTheme[currentTheme];
         </SimpleReveal>
         </SpotlightCard>
 */}
+          <div className='stack-wrapper'>
           <div className='stack-container' style={{ width: 250, height: 250 }}>
             <Stack
               randomRotation={false}
-              sensitivity={170}
+              sensitivity={100}
               sendToBackOnClick={true}
               cards={images.map((src, i) => (
                 <img 
@@ -383,6 +395,7 @@ const mainBackground = mainTheme[currentTheme];
               autoplayDelay={3000}
               pauseOnHover
           />
+          </div>
           </div>
         </div>
       </div>
@@ -404,7 +417,9 @@ const mainBackground = mainTheme[currentTheme];
         />
       */}
       <div className='decoration-wrapper'>
-      <MunRoadmap />
+      <MunRoadmap
+        theme={theme}
+      />
 
       <PerksCarousel />
       </div>
@@ -416,7 +431,12 @@ const mainBackground = mainTheme[currentTheme];
       <div className='page3-wrapper' style={{background: mainBackground}}>
       <div className='page3'>
       <section id='committee'>
-        <CommitteeGrid />
+        <CommitteeGrid
+          theme={theme}
+        />
+        <MinorCommittees
+          theme={theme}
+        />
       </section>
       </div>
       </div>
@@ -425,6 +445,7 @@ const mainBackground = mainTheme[currentTheme];
       </div>
         
 
+    </div>
     </>
   )
 }

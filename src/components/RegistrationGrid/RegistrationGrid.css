@@ -1,0 +1,153 @@
+.reg-section {
+  padding: 100px 20px;
+  color: #fff;
+}
+
+.reg-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 2-Column Layout for Desktop */
+.reg-layout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.reg-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card Styling */
+.reg-card {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+/* THE OVERFLOW EFFECT: Subtle white gradient from the bottom edge */
+.reg-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.05), transparent);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.reg-card:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.reg-card:hover::before {
+  opacity: 0.15; /* Makes the "overflow" look stronger on hover */
+}
+
+/* Typography */
+.reg-tag {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.reg-h {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.reg-h.small { font-size: 1.8rem; }
+
+.reg-price {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 15px 0;
+}
+
+.reg-price.small { font-size: 2rem; margin: 5px 0; }
+
+.reg-info {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.reg-quote {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* COLLAPSIBLE - Small & Thin */
+.eligibility-details {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.eligibility-details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.eligibility-details summary .material-symbols-rounded {
+  display: inline-block; /* Essential for rotation to work */
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  /* Remove transition: transform; GSAP handles it now */
+}
+
+.eligibility-details summary:hover { color: #fff; }
+
+.details-text {
+  padding-top: 15px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .reg-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .reg-right-col {
+    display: grid;
+    grid-template-columns: 1fr; /* Half width side-by-side */
+    gap: 15px;
+  }
+
+  .reg-card {
+    padding: 25px;
+  }
+
+  .reg-h { font-size: 1.8rem; }
+  .reg-price { font-size: 2.2rem; }
+}
+
+.inc-weight {
+  font-weight: bold;
+}

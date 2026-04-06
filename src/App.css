@@ -1,18 +1,27 @@
-html {
-  scroll-behavior: smooth;
+.site-wrapper {
+  position: relative; /* Essential: This becomes the anchor for the grid */
+  overflow-x: hidden;
+  width: 100vw;
+  min-height: 100vh;
 }
+
 .grid-bg {
   position: absolute;
-  inset: 0;
+  /* Top 0 and Bottom 0 inside a relative parent forces it to 
+     match the total height of the content, no matter how long it is */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   background-image: 
     linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
 
   background-size: 40px 40px;
-  height: 400vh;
+  /* Removed height: 500vh; */
+  z-index: 0; /* Keep it behind everything */
   pointer-events: none;
-  overflow: hidden;
 }
 
 .nav-container {
@@ -412,4 +421,8 @@ html {
 .site-wrapper {
   overflow-x: hidden;
   width: 100vw;
+}
+
+.contact-page {
+  z-index: 1;
 }

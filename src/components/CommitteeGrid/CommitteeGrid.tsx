@@ -16,7 +16,7 @@ const committeeSteps = [
     icon: "public", 
     isCustom: false, 
     agenda: "Legal implications regarding the detention of the President of Venezuela.", 
-    color: "#E0B643",
+    color: "#FFFFFF",
     desktopLayout: "stack", // Below heading
     mobileLayout: "stack" 
   },
@@ -26,17 +26,17 @@ const committeeSteps = [
     icon: "account_balance", 
     isCustom: false, 
     agenda: "Reviewing India's National Security Doctrine and border tensions.", 
-    color: "#10B981",
+    color: "#FFFFFF",
     desktopLayout: "inline", // Next to heading
     mobileLayout: "inline"
   },
   { 
     id: '03', 
     name: "MARVEL", 
-    icon: "/marvel.svg", 
+    icon: "/marvel-white.svg", 
     isCustom: true, 
     agenda: "Strategic response to Doctor Doom’s Ascendancy and Multiversal instability.", 
-    color: "#EF4444",
+    color: "#FFFFFF",
     desktopLayout: "stack", // Below heading
     mobileLayout: "stack"
   },
@@ -46,7 +46,7 @@ const committeeSteps = [
     icon: "auto_fix_high", 
     isCustom: false, 
     agenda: "Restoring governance following the leak of restricted Ministry spells.", 
-    color: "#A855F7",
+    color: "#FFFFFF",
     desktopLayout: "stack", // Below heading
     mobileLayout: "stack"
   },
@@ -56,7 +56,7 @@ const committeeSteps = [
     icon: "sports_cricket", 
     isCustom: false, 
     agenda: "Addressing strategic overbidding and competitive imbalance in franchises.", 
-    color: "#64748B",
+    color: "#FFFFFF",
     desktopLayout: "inline",
     mobileLayout: "inline"
   },
@@ -66,7 +66,7 @@ const committeeSteps = [
     icon: "sports_soccer", 
     isCustom: false, 
     agenda: "Investigating systemic corruption to restore integrity in football governance.", 
-    color: "#3B82F6",
+    color: "#FFFFFF",
     desktopLayout: "stack", // Below heading
     mobileLayout: "stack"
   },
@@ -76,7 +76,7 @@ const committeeSteps = [
     icon: "sports_motorsports", 
     isCustom: false, 
     agenda: "Investigating mysterious technical failures during the championship season.", 
-    color: "#F59E0B",
+    color: "#FFFFFF",
     desktopLayout: "inline",
     mobileLayout: "stack"
   },
@@ -86,7 +86,7 @@ const committeeSteps = [
     icon: "sports_basketball", 
     isCustom: false, 
     agenda: "Sudden resignation of a franchise owner and commercial uncertainty.", 
-    color: "#EC4899",
+    color: "#FFFFFF",
     desktopLayout: "inline",
     mobileLayout: "stack"
   },

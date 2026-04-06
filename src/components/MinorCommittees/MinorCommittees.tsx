@@ -9,91 +9,91 @@ const minorCommittees = [
     id: '09', 
     slug: "unga",
     name: "UNGA", 
-    color: "#10B981", 
+    color: "#FFFFFF", 
     agenda: "Impact of suspended humanitarian funding on civilian protection in Gaza."
   },
   { 
     id: '10', 
     slug: "unodc",
     name: "UNODC", 
-    color: "#3B82F6", 
+    color: "#FFFFFF", 
     agenda: "Expansion of narcotics trafficking routes through West Africa."
   },
   { 
     id: '11', 
     slug: "unhrc",
     name: "UNHRC", 
-    color: "#F59E0B", 
+    color: "#FFFFFF", 
     agenda: "Human rights violations from military operations in the West Bank."
   },
   { 
     id: '12', 
     slug: "unicef",
     name: "UNICEF", 
-    color: "#A855F7", 
+    color: "#FFFFFF", 
     agenda: "Protecting children from forced recruitment and malnutrition in Africa."
   },
   { 
     id: '13', 
     slug: "uncsw",
     name: "UNCSW", 
-    color: "#64748B", 
+    color: "#FFFFFF", 
     agenda: "Impact of the female education ban in Afghanistan on gender equality."
   },
   { 
     id: '14', 
     slug: "unea",
     name: "UNEA", 
-    color: "#06B6D4", 
+    color: "#FFFFFF", 
     agenda: "Environmental impact of large-scale AI expansion and water depletion."
   },
   { 
     id: '15', 
     slug: "who",
     name: "WHO", 
-    color: "#EC4899", 
+    color: "#FFFFFF", 
     agenda: "Public health emergency from the healthcare collapse in Gaza."
   },
   { 
     id: '16', 
     slug: "undp",
     name: "UNDP", 
-    color: "#00703C", 
+    color: "#FFFFFF", 
     agenda: "Global mechanisms for restricted development in conflicted regions."
   },
   { 
     id: '17', 
     slug: "unesco",
     name: "UNESCO", 
-    color: "#22D3EE", 
+    color: "#FFFFFF", 
     agenda: "Protection of UNESCO World Heritage Sites during armed conflicts."
   },
   { 
     id: '18', 
     slug: "lokSabha",
     name: "LOK SABHA", 
-    color: "#F97316", 
+    color: "#FFFFFF", 
     agenda: "Regulation of AI, deepfakes, and electoral integrity in India."
   },
   { 
     id: '19', 
     slug: "ccc",
     name: "CCC", 
-    color: "#D946EF", 
+    color: "#FFFFFF", 
     agenda: "Agenda Classified."
   },
   { 
     id: '20', 
     slug: "bcci",
     name: "BCCI", 
-    color: "#0EA5E9", 
+    color: "#FFFFFF", 
     agenda: "Institutional review of cricket administration following leaks."
   },
   { 
     id: '21', 
     slug: "ip",
     name: "IP", 
-    color: "#84CC16", 
+    color: "#FFFFFF", 
     agenda: "Journalists, Photographers, and Caricaturists."
   }
 ];

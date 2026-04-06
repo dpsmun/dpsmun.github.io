@@ -14,6 +14,8 @@ import Countdown from './components/Countdown/Countdown';
 import PerksCarousel from './components/PerksCarousel/PerksCarousel';
 import MunRoadmap from './components/MunRoadmap/MunRoadmap';
 import MinorCommittees from './components/MinorCommittees/MinorCommittees';
+import RegistrationGrid from './components/RegistrationGrid/RegistrationGrid';
+import ContactGrid from './components/ContactGrid/ContactGrid';
 // import MagicBento from './components/MagicBento/MagicBento';
 
 import logo from './assets/logo.png'
@@ -428,7 +430,9 @@ const mainBackground = mainTheme[currentTheme];
       </section>
       </div>
 
-      <div className='page3-wrapper' style={{background: mainBackground}}>
+      <div className='main-bg-wrapper' style={{background: mainBackground}}>
+
+      <div className='page3-wrapper'>
       <div className='page3'>
       <section id='committee'>
         <CommitteeGrid
@@ -441,7 +445,14 @@ const mainBackground = mainTheme[currentTheme];
       </div>
       </div>
 
-      <div className='test-page' style={{ background: mainBackground }}>
+      <div className='page4'>
+      <RegistrationGrid
+        theme={theme}
+      />
+      </div>
+      <div className='contact-page'>
+      <ContactGrid/>
+      </div>
       </div>
         
 

@@ -1,0 +1,104 @@
+.contact-section {
+  padding: 80px 20px;
+  background: transparent;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 30px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+}
+
+.contact-info h3 {
+  font-size: 1.1rem;
+  margin: 0 0 4px 0;
+  color: #fff;
+}
+
+.contact-info p {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 24px 0;
+}
+
+.contact-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, color 0.3s ease, scale 0.1s linear;
+}
+
+/* THE BUTTON ANIMATION (Card hover triggers button move) */
+.contact-card:hover .contact-btn {
+  transform: translateY(-6px);
+  /* background: rgba(255, 255, 255, 0.12); */
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.contact-btn:active {
+  scale: 0.95;
+}
+
+/* Instagram Special State */
+/* .contact-card:hover .contact-btn.instagram { */
+/*   background: #ffffff; */
+/*   color: #000000; */
+/*   border-color: #ffffff; */
+/* } */
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper span { font-size: 1.2rem; }
+
+.copy-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  z-index: 10000;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }

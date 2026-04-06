@@ -49,7 +49,7 @@ const RegistrationGrid: React.FC<RegistrationGridProps> = ({ theme }) => {
 
   return (
     <FloatReveal>
-    <section id="registration" className="reg-section">
+    <section className="reg-section">
       <div className="reg-wrapper">
         <div className="reg-layout-grid">
           

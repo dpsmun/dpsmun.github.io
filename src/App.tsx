@@ -446,13 +446,17 @@ const mainBackground = mainTheme[currentTheme];
       </div>
       </div>
 
-      <div className='page4' id='register'>
-      <RegistrationGrid
-        theme={theme}
-      />
+      <div className='page4'>
+        <section id='register'>
+          <RegistrationGrid
+            theme={theme}
+          />
+        </section>
       </div>
-      <div className='contact-page' id='contact'>
-      <ContactGrid/>
+      <div className='contact-page'>
+        <section id='contact'>
+          <ContactGrid />
+        </section>
       </div>
       </div>
         

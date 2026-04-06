@@ -138,12 +138,13 @@ const mainBackground = mainTheme[currentTheme];
       <div className='nav-container'>
       <PillNav
         logo={logo}
-        logoAlt="Company Logo"
+        logoAlt="MUN Logo"
         items={[
           { label: 'Home', href: '#home' },
           { label: 'About', href: '#about' },
           { label: 'Committees', href: '#committee' },
-          { label: 'Contact', href: '/contact' }
+          { label: 'Register', href: '#register' },
+          { label: 'Contact', href: '#contact' }
         ]}
         activeHref="/"
         className="custom-nav"
@@ -196,7 +197,7 @@ const mainBackground = mainTheme[currentTheme];
           <p className='landing-date'> 9th &amp; 10th May </p>
         </div>
         <div className='landing-buttons'>
-          <LandingButton text="Register Now" variant="filled" />
+          <LandingButton text="Register Now" variant="filled" href='#register' />
           <LandingButton text="Comittees" variant="hollow" href='#committee'/> 
         </div>
       </div>
@@ -445,12 +446,12 @@ const mainBackground = mainTheme[currentTheme];
       </div>
       </div>
 
-      <div className='page4'>
+      <div className='page4' id='register'>
       <RegistrationGrid
         theme={theme}
       />
       </div>
-      <div className='contact-page'>
+      <div className='contact-page' id='contact'>
       <ContactGrid/>
       </div>
       </div>

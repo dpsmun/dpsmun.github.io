@@ -28,7 +28,7 @@ const PillNav: React.FC<PillNavProps> = ({
   logo,
   logoAlt = 'Logo',
   items,
-  activeHref = '#home',
+  activeHref = '',
   className = '',
   ease = 'power3.easeOut',
   baseColor = '#fff',

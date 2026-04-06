@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .site-wrapper {
   position: relative; /* Essential: This becomes the anchor for the grid */
   overflow-x: hidden;
